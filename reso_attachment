@@ -121,14 +121,5 @@ for name in listdir():
     print("последняя строка = ", _row)
     wb.save("RESO_.xls")
 
-# Тут я пытаюсь конвертировать файлы
-
-# chdir("C:\\Users\\baa\\PycharmProjects\\convert_lists_from_insurance\\RTF")
-#
-# for name in listdir():
-#     with open(name) as f:
-#         write_text = f.read()
-#         print(striprtf(write_text))
-
 
 
