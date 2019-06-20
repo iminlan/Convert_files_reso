@@ -5,13 +5,6 @@ from os import listdir
 from os import chdir
 from parse import striprtf
 
-print('\n ***Обработка прикреплений*** \n')
-print('Список файлов в директории:')
-chdir("C:\\Users\\baa\\PycharmProjects\\convert_lists_from_insurance\\DOCX\\Прикрепить")
-
-for name in listdir():
-    print(name)
-
 
 def add_first_row(_ws):
     _ws.write(0, 0, 'SURNAME')
@@ -101,13 +94,16 @@ def my_file(ws, _file_name, _row):
                 n += 1
     return _row
 
+chdir("C:\\Users\\baa\\PycharmProjects\\convert_lists_from_insurance\\DOCX\\Прикрепить")
+print('\n ***Обработка прикреплений*** \n')
+for name in listdir():
+    print(name)
+
 # Создали файл
 people = {'polis': [], 'fio': [], 'birth': []}
 wb = xlwt.Workbook()
 ws = wb.add_sheet("Sheet1")   # создали лист
 add_first_row(ws)             # и для листа создали "шапку"
-print('Создали файл загрузки RESO.xls')
-
 
 _row = 1  # строка
 start_col = 0
@@ -117,5 +113,5 @@ for name in listdir():
     print("Обработка файла ", name)
     print("...")
     _row = my_file(ws, name, _row)
-    #print("последняя строка = ", _row)
+        #print("последняя строка = ", _row)
     wb.save("RESO_.xls")
