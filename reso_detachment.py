@@ -116,4 +116,3 @@ for name in listdir():
     _row = my_file(ws, name, _row)
     #print("последняя строка = ", _row)
     wb.save("DETACH_reso_.xls")
-
