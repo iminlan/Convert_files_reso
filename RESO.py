@@ -31,4 +31,4 @@ try:
         except OSError:
             remove(filepath)
 except FileNotFoundError:
-    print("не найдено файлов отрепления")
+    print("не найдено файлов открепления")
