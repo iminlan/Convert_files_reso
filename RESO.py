@@ -6,25 +6,29 @@ import RESO_detachment
 chdir("C:\\Users\\baa\\PycharmProjects\\convert_lists_from_insurance\\DOCX")
 
 # копируем файлы в папку DOCX
-move('Прикрепить\\RESO_.xls', 'RESO_.xls')
-move('Закрыть\\DETACH_reso_.xls', 'DETACH_reso_.xls')
+# и чистим папки для дальнейшего использования
 
-# почистили папки для дальнейшего использования
+try:
+    move('Прикрепить\\RESO_.xls', 'RESO_.xls')
+    dir = "Прикрепить"
+    for name in listdir(dir):
+        filepath = path.join(dir, name)
+        try:
+            rmtree(filepath)
+        except OSError:
+            remove(filepath)
+except FileNotFoundError:
+    print("не найдено файлов прикрепления")
 
-dir = "C:\\Users\\baa\\PycharmProjects\\convert_lists_from_insurance\\DOCX\\Прикрепить"
 
-for name in listdir(dir):
-    filepath = path.join(dir, name)
-    try:
-        rmtree(filepath)
-    except OSError:
-        remove(filepath)
-
-dir = "C:\\Users\\baa\\PycharmProjects\\convert_lists_from_insurance\\DOCX\\Закрыть"
-
-for name in listdir(dir):
-    filepath = path.join(dir, name)
-    try:
-        rmtree(filepath)
-    except OSError:
-        remove(filepath)
+try:
+    move('Закрыть\\DETACH_reso_.xls', 'DETACH_reso_.xls')
+    dir = "Закрыть"
+    for name in listdir(dir):
+        filepath = path.join(dir, name)
+        try:
+            rmtree(filepath)
+        except OSError:
+            remove(filepath)
+except FileNotFoundError:
+    print("не найдено файлов отрепления")
